@@ -13,6 +13,9 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd" default-lazy-init="true">
+
+    <context:property-placeholder location="classpath:config.properties" />
+
     <!-- 主要用于获取applicationContext -->
     <bean id="beanUtils" lazy-init="false" class="cn.edu.hdu.ssd.util.BeanUtil" />
     
@@ -23,16 +26,11 @@
     <context:component-scan base-package="cn.edu.hdu.ssd">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
         <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice" />
-
     </context:component-scan>
-    
-    <context:property-placeholder location="classpath:config.properties" />
 
     <!-- CAS配置相关 -->
     <import resource="spring-shiro.xml" />
     
     <import resource="dao.xml" />
     <import resource="transaction.xml" />
-
-    
 </beans>
