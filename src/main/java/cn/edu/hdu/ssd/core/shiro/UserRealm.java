@@ -24,6 +24,7 @@ public class UserRealm
         extends AuthorizingRealm//继承安全域
 {
     public static Logger logger = Logger.getLogger(UserRealm.class);
+
     @Autowired
     IUserService userService;
 
